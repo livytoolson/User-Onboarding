@@ -1,4 +1,28 @@
 import React from 'react';
+import styled from 'styled-components'
+
+const FormDiv = styled.div`
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const StyledName = styled.label`
+    padding: 15px;
+`
+
+const StyledEmail = styled.label`
+    padding: 15px;
+`
+
+const StyledPassword = styled.label`
+    padding: 15px;
+`
+
+const StyledTerms = styled.label`
+    padding: 15px;
+`
 
 export default function Form(props) {
     const { values, submit, change, disabled, errors } = props;
@@ -26,45 +50,45 @@ export default function Form(props) {
         </div>
 
         {/* // TEXT INPUTS // */}
-        <div>
-            <label>Name
+        <FormDiv>
+            <StyledName>Name
                 <input 
                 value={values.name}
                 onChange={onChange}
                 name="name"
                 type="text"
                 />
-            </label>
+            </StyledName>
 
-            <label>Email
+            <StyledEmail>Email
                 <input 
                 value={values.email}
                 onChange={onChange}
                 name="email"
                 type="text"
                 />
-            </label>
+            </StyledEmail>
 
-            <label>Password
+            <StyledPassword>Password
                 <input 
                 value={values.password}
                 onChange={onChange}
                 name="password"
                 type="text"
                 />
-            </label>
+            </StyledPassword>
 
         {/* // CHECKBOX // */}
-            <label>I agree to the Terms of Service
+            <StyledTerms>I agree to the Terms of Service
                 <input 
                 type="checkbox"
                 name="termsOfService"
                 checked={values.termsOfService === true}
                 onChange={onChange}
                 />
-            </label>
+            </StyledTerms>
 
-        </div>
+        </FormDiv>
 
         {/* // DISABLE THE BUTTON //  */}
         <div>

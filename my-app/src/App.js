@@ -2,8 +2,16 @@ import React, { useState, useEffect } from 'react';
 import Form from './Form';
 import schema from './formSchema';
 import User from './User';
+import styled from 'styled-components';
 import axios from 'axios';
 import * as yup from 'yup';
+
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`
 
 // INITIAL STATE OF FORM //
 const initialFormValues = {
@@ -96,8 +104,11 @@ useEffect(() => {
 }, [formValues])
 
   return (
-    <div>
-      <header><h1>New User Form</h1></header>
+    <StyledDiv>
+      <header>
+        <h1>New User Form</h1>
+      </header>
+ 
       <Form 
         values={formValues}
         change={inputChange}
@@ -109,6 +120,6 @@ useEffect(() => {
       {user.map((user) => {
         return <User key={user.id} details={user} />;
       })}
-    </div>
+    </StyledDiv>
   )
 }
