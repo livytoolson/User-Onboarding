@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import Form from './Form.js'
-import schema from './formSchema.js'
-import axios from 'axios'
-import * as yup from 'yup'
+import React, { useState, useEffect } from 'react';
+import Form from './Form';
+import schema from './formSchema';
+import axios from 'axios';
+import * as yup from 'yup';
 
 // INITIAL STATE OF FORM //
 const initialFormValues = {
@@ -28,6 +28,7 @@ const [user, setUser] = useState(initialUser)
 const [formValues, setFormValues] = useState(initialFormValues)
 const [formErrors, setFormErrors] = useState(initialFormErrors)
 const [disabled, setDisabled] = useState(initialDisabled)
+// console.log(formValues)
 
 // HELPER FUNCTIONS //
 // add newly created user to state
@@ -37,6 +38,7 @@ const postNewUser = newUser => {
   axios
     .post('https://reqres.in/api/users', newUser)
     .then((res) => {
+      // console.log(res.data)
       setUser([...user, res.data]);
       setFormValues(initialFormValues);
     })
@@ -47,6 +49,7 @@ const postNewUser = newUser => {
 
 // EVENT HANDLERS //
 const inputChange = (name, value) => {
+  // console.log(name, value)
   yup
     .reach(schema, name)
     .validate(value)
@@ -59,7 +62,7 @@ const inputChange = (name, value) => {
     .catch((err) => {
       setFormErrors({
         ...formErrors,
-        [name]: err.error[0],
+        [name]: err.errors[0],
       });
     });
 
@@ -74,7 +77,7 @@ const formSubmit = () => {
     name: formValues.name.trim(),
     email: formValues.email.trim(),
     password: formValues.password.trim(),
-    termsOfService: ['yes', 'no'].filter(
+    termsOfService: ['true', 'false'].filter(
       (res => formValues[res])
     ),
   };
