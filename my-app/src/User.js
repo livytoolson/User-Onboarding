@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
 `
 
 function User({ details }) {
-    console.log(details)
+    // console.log(details)
   if (!details) {
     return <h3>Working fetching details...</h3>
   }

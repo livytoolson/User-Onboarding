@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 
-// STYLE FORM //
+// STYLED COMPONENTS //
 const FormDiv = styled.div`
   display:flex;
   flex-direction: column;
@@ -25,6 +25,14 @@ const StyledTerms = styled.label`
     padding: 15px;
 `
 
+const SyledErrors = styled.div`
+    color: red;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+
 export default function Form(props) {
     const { values, submit, change, disabled, errors } = props;
 
@@ -43,12 +51,12 @@ export default function Form(props) {
     return (
     <form onSubmit={onSubmit}>
         {/* // RENDER VALIDATION ERRORS // */}
-        <div>
+        <SyledErrors>
             <div>{errors.name}</div>
             <div>{errors.email}</div>
             <div>{errors.password}</div>
             <div>{errors.termsOfService}</div>
-        </div>
+        </SyledErrors>
 
         {/* // TEXT INPUTS // */}
         <FormDiv>
