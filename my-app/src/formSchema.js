@@ -14,4 +14,5 @@ export default yup.object().shape({
         .required('Passowrd is required'),
     termsOfService: yup
         .boolean()
+        .required('Response to Terms of Service is required')
 });

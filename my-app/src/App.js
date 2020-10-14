@@ -30,6 +30,9 @@ const [formErrors, setFormErrors] = useState(initialFormErrors)
 const [disabled, setDisabled] = useState(initialDisabled)
 
 // HELPER FUNCTIONS //
+// add newly created user to state
+// use helper function to post newUser to 'https://reqres.in/api/users'
+// reset form to initialFormValues
 const postNewUser = newUser => {
   axios
     .post('https://reqres.in/api/users', newUser)
@@ -75,10 +78,13 @@ const formSubmit = () => {
       (res => formValues[res])
     ),
   };
+
+// post newUser using postNewUser helper function
   postNewUser(newUser);
 };
 
 // SIDE EFFECTS //
+// adjust the status of disabled everytime the formValues changes
 useEffect(() => {
   schema.isValid(formValues).then(valid => {
     setDisabled(!valid);
@@ -87,7 +93,7 @@ useEffect(() => {
 
   return (
     <div>
-      <header><h1>New User App</h1></header>
+      <header><h1>New User Form</h1></header>
       <Form 
         values={formValues}
         change={inputChange}

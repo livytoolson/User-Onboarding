@@ -15,15 +15,13 @@ export default function Form(props) {
     };
 
     return (
-    <form>
-        {/* // DISABLE THE BUTTON //  */}
-        <div>
-            <button disabled={disabled}>submit</button>
-        </div>
-
+    <form onSubmit={onSubmit}>
         {/* // RENDER VALIDATION ERRORS // */}
         <div>
-
+            <div>{errors.name}</div>
+            <div>{errors.email}</div>
+            <div>{errors.password}</div>
+            <div>{errors.termsOfSerive}</div>
         </div>
 
         {/* // TEXT INPUTS // */}
@@ -56,24 +54,20 @@ export default function Form(props) {
             </label>
 
         {/* // CHECKBOX // */}
-            <label>Yes
+            <label>I agree to the Terms of Service
                 <input 
                 type="checkbox"
-                name="yes"
+                name="termsOfService"
                 checked={values.yes}
                 onChange={onChange}
                 />
             </label>
 
-            <label>No
-                <input 
-                type="checkbox"
-                name="no"
-                checked={values.no}
-                onChange={onChange}
-                />
-            </label>
+        </div>
 
+        {/* // DISABLE THE BUTTON //  */}
+        <div>
+            <button disabled={disabled}>submit</button>
         </div>
     </form>
     )
