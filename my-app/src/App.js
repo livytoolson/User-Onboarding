@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 import * as yup from 'yup';
 
+// STYLE FORM // 
 const StyledDiv = styled.div`
   display: flex;
   flex-direction: column;

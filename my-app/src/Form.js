@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 
+// STYLE FORM //
 const FormDiv = styled.div`
   display:flex;
   flex-direction: column;
@@ -88,12 +89,10 @@ export default function Form(props) {
                 />
             </StyledTerms>
 
-        </FormDiv>
-
         {/* // DISABLE THE BUTTON //  */}
-        <div>
             <button disabled={disabled}>submit</button>
-        </div>
+
+        </FormDiv>
     </form>
     )
 };
