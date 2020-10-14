@@ -11,8 +11,8 @@ export default function Form(props) {
     const onChange = (evt) => {
         const { name, value, type, checked } = evt.target;
         const valueToUse = type === "checkbox" ? checked : value;
-        console.log(name, valueToUse)
-        change(name, value);
+        // console.log(name, valueToUse)
+        change(name, valueToUse);
     };
 
     return (
