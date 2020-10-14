@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Form from './Form';
 import schema from './formSchema';
+import User from './User';
 import axios from 'axios';
 import * as yup from 'yup';
 
@@ -38,7 +39,7 @@ const postNewUser = newUser => {
   axios
     .post('https://reqres.in/api/users', newUser)
     .then((res) => {
-      // console.log(res.data)
+      console.log(res)
       setUser([...user, res.data]);
       setFormValues(initialFormValues);
     })
@@ -104,6 +105,10 @@ useEffect(() => {
         disabled={disabled}
         errors={formErrors}
       />
+
+      {user.map((user) => {
+        return <User key={user.id} details={user} />;
+      })}
     </div>
   )
 }
