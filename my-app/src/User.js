@@ -15,6 +15,7 @@ function User({ details }) {
       <h3>{details.name}</h3>
       <p>Email: {details.email}</p>
       <p>Password: {details.password}</p>
+      <p>Role: {details.role}</p>
       <p>Terms of Service: {details.termsOfService ? "Agreed" : "Disagreed"}</p>
     </StyledDiv>
   )

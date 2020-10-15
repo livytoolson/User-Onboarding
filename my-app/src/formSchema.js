@@ -13,6 +13,9 @@ export default yup.object().shape({
         .string()
         .required('Password is required')
         .min(6, "Password must be at least 6 characters long"),
+    role: yup
+        .string()
+        .oneOf(['Student', 'Working Professional', 'Unemployed']),
     termsOfService: yup
         .boolean()
         .oneOf([true], "You must accept Terms and Conditions"),

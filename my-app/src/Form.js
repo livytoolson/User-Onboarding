@@ -88,6 +88,16 @@ export default function Form(props) {
                 />
             </StyledPassword>
 
+        {/* DROPDOWN */}
+            <label>Role
+                <select name="role" value={values.role} onChange={onChange}>
+                    <option value="">---Select Role---</option>
+                    <option value="Student">Student</option>
+                    <option value="Working Professional">Working Professional</option>
+                    <option value="Unemployed">Unemployed</option>
+                </select>
+            </label>
+
         {/* // CHECKBOX // */}
             <StyledTerms className="tos">I agree to the Terms of Service
                 <input 

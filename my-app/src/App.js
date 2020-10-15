@@ -20,6 +20,7 @@ const initialFormValues = {
   name: '',
   email: '',
   password: '',
+  role: '',
 // CHECKBOX // 
   termsOfService: false,
 }
@@ -87,6 +88,7 @@ const formSubmit = () => {
     name: formValues.name.trim(),
     email: formValues.email.trim(),
     password: formValues.password.trim(),
+    role: formValues.role,
     termsOfService: formValues.termsOfService,
   };
 
