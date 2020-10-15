@@ -42,15 +42,22 @@ describe('User Onboarding Test', () => {
     })
 
     it('Check for form validation if an input is left empty', () => {
+        // Name input validation error
         nameInput().type('Ol')
         nameInput().type('{backspace}{backspace}')
         errors().contains('Name is required')
+
+        // Email input validation error
         emailInput().type('o')
         emailInput().type('{backspace}')
         errors().contains('Email is required')
+
+        // Password input validation error
         passwordInput().type('o')
         passwordInput().type('{backspace}')
         errors().contains('Password is required')
+
+        // Terms of service checkbox validation error
         tosInput().check()
         tosInput().uncheck()
         errors().contains('You must accept Terms and Conditions')
