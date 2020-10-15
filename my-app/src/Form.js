@@ -60,7 +60,7 @@ export default function Form(props) {
 
         {/* // TEXT INPUTS // */}
         <FormDiv>
-            <StyledName>Name
+            <StyledName className="name">Name
                 <input 
                 value={values.name}
                 onChange={onChange}
@@ -69,7 +69,7 @@ export default function Form(props) {
                 />
             </StyledName>
 
-            <StyledEmail>Email
+            <StyledEmail className="email">Email
                 <input 
                 value={values.email}
                 onChange={onChange}
@@ -78,7 +78,7 @@ export default function Form(props) {
                 />
             </StyledEmail>
 
-            <StyledPassword>Password
+            <StyledPassword className="password">Password
                 <input 
                 value={values.password}
                 onChange={onChange}
@@ -88,7 +88,7 @@ export default function Form(props) {
             </StyledPassword>
 
         {/* // CHECKBOX // */}
-            <StyledTerms>I agree to the Terms of Service
+            <StyledTerms className="tos">I agree to the Terms of Service
                 <input 
                 type="checkbox"
                 name="termsOfService"

@@ -5,8 +5,11 @@ describe('User Onboarding Test', () => {
         cy.visit('http://localhost:3000')
     })
 
-    it('Get name input and type a name', () => {
+    const nameInput = () => cy.get('input[name="name"]')
 
+    it('Get name input and type a name', () => {
+        nameInput().should('exist')
+        nameInput().type('Olivia')
     })
 
     it('Check if text input contains the name provided', () => {
