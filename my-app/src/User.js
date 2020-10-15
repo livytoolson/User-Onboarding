@@ -8,9 +8,9 @@ const StyledDiv = styled.div`
 `
 
 function User({ details }) {
-    // console.log(details)
+    // console.log(details.termsOfService)
   if (!details) {
-    return <h3>Working fetching details...</h3>
+    return <h3>Fetching details...</h3>
   }
 
   return (
