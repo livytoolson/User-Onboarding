@@ -98,7 +98,7 @@ export default function Form(props) {
             </StyledTerms>
 
         {/* // DISABLE THE BUTTON //  */}
-            <button disabled={disabled}>submit</button>
+            <button id='submitBtn' disabled={disabled}>submit</button>
 
         </FormDiv>
     </form>
