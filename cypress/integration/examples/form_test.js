@@ -1,6 +1,10 @@
 // write tests here
 describe('User Onboarding Test', () => {
 
+    beforeEach(() => {
+        cy.visit('http://localhost:3000')
+    })
+
     it('Get name input and type a name', () => {
 
     })
