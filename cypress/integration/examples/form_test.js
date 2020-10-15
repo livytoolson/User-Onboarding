@@ -12,19 +12,18 @@ describe('User Onboarding Test', () => {
     const submitBtn = () => cy.get('#submitBtn')
 
     it('Get name input, type a name, check if name input contains name', () => {
-        nameInput().should('exist')
         nameInput().type('Olivia')
         nameInput().should('have.value', 'Olivia')
     })
 
     it('Get email input and type an email address', () => {
-        emailInput().should('exist')
-        nameInput().type('test@test.com')
+        emailInput().type('test@test.com')
+        emailInput().should('have.value', 'test@test.com')
     })
 
     it('Get password input and type a password', () => {
-        passwordInput().should('exist')
         passwordInput().type('password')
+        passwordInput().should('have.value', 'password')
     })
 
     it('Check to see if user can check TOS checkbox', () => {
@@ -42,7 +41,18 @@ describe('User Onboarding Test', () => {
     })
 
     it('Check for form validation if an input is left empty', () => {
-        
+        nameInput().type('a')
+        emailInput().type('abc')
+        passwordInput().type('abcd')
+        tosInput().check()
+        tosInput().uncheck()
+    })
+
+    it('Form returns to original state', () => {
+        nameInput()
+        emailInput()
+        passwordInput()
+        tosInput()
     })
 
 })
