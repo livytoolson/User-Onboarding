@@ -44,18 +44,19 @@ export default function Form(props) {
     const onChange = (evt) => {
         const { name, value, type, checked } = evt.target;
         const valueToUse = type === "checkbox" ? checked : value;
-        // console.log(name, valueToUse)
+        // console.log('type', type)
+        // console.log('valueToUse', valueToUse)
         change(name, valueToUse);
     };
 
     return (
     <form onSubmit={onSubmit}>
         {/* // RENDER VALIDATION ERRORS // */}
-        <SyledErrors>
-            <div>{errors.name}</div>
-            <div>{errors.email}</div>
-            <div>{errors.password}</div>
-            <div>{errors.termsOfService}</div>
+        <SyledErrors className="errors">
+            <div className="errors">{errors.name}</div>
+            <div className="errors">{errors.email}</div>
+            <div className="errors">{errors.password}</div>
+            <div className="errors">{errors.termsOfService}</div>
         </SyledErrors>
 
         {/* // TEXT INPUTS // */}

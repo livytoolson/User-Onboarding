@@ -10,6 +10,7 @@ describe('User Onboarding Test', () => {
     const passwordInput = () => cy.get('input[name="password"]')
     const tosInput = () => cy.get('[type="checkbox"]')
     const submitBtn = () => cy.get('#submitBtn')
+    const errors = () => cy.get('.errors')
 
     it('Get name input, type a name, check if name input contains name', () => {
         nameInput().type('Olivia')
@@ -41,11 +42,18 @@ describe('User Onboarding Test', () => {
     })
 
     it('Check for form validation if an input is left empty', () => {
-        nameInput().type('a')
-        emailInput().type('abc')
-        passwordInput().type('abcd')
+        nameInput().type('Ol')
+        nameInput().type('{backspace}{backspace}')
+        errors().contains('Name is required')
+        emailInput().type('o')
+        emailInput().type('{backspace}')
+        errors().contains('Email is required')
+        passwordInput().type('o')
+        passwordInput().type('{backspace}')
+        errors().contains('Password is required')
         tosInput().check()
         tosInput().uncheck()
+        errors().contains('You must accept Terms and Conditions')
     })
 
     it('Form returns to original state', () => {
