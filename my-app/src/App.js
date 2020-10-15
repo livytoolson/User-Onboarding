@@ -87,9 +87,7 @@ const formSubmit = () => {
     name: formValues.name.trim(),
     email: formValues.email.trim(),
     password: formValues.password.trim(),
-    termsOfService: ['true', 'false'].filter(
-      (res => formValues[res])
-    ),
+    termsOfService: formValues.termsOfService,
   };
 
 // post newUser using postNewUser helper function

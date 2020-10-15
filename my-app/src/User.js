@@ -8,17 +8,14 @@ const StyledDiv = styled.div`
 `
 
 function User({ details }) {
-    // console.log(details.termsOfService)
-  if (!details) {
-    return <h3>Fetching details...</h3>
-  }
+    // console.log(details)
 
   return (
     <StyledDiv >
       <h3>{details.name}</h3>
       <p>Email: {details.email}</p>
       <p>Password: {details.password}</p>
-      <p>Terms of Service: {details.termsOfService}</p>
+      <p>Terms of Service: {details.termsOfService ? "Agreed" : "Disagreed"}</p>
     </StyledDiv>
   )
 }
